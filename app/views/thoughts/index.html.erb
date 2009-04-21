@@ -1,0 +1,23 @@
+<h1>Listing Thoughts</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>User</th>
+  </tr>
+  <%- @thoughts.each do |thought|%>
+    <tr>
+      <td><%=h thought.title %></td>
+      <td><%=h thought.description %></td>
+      <td><%=h thought.user_id %></td>
+    
+      <td><%=link_to 'Show', object_url(thought) %></td>
+      <td><%=link_to 'Edit', edit_object_url(thought) %></td>
+      <td><%=link_to 'Destroy', object_url(thought), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<br/>
+
+<%= link_to 'New Thought', new_object_url %>
